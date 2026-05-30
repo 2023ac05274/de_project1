@@ -1,0 +1,27 @@
+resources:
+  jobs:
+    project1_earthquake_end_end:
+      name: project1_earthquake_end_end
+      tasks:
+        - task_key: Injestion_bronze
+          notebook_task:
+            notebook_path: ../src/notebooks/ingestion_bronze.ipynb
+            base_parameters:
+              catalog_name: ${var.catalog}
+            source: WORKSPACE
+        - task_key: bronze_silver_clean_earthquake_data
+          depends_on:
+            - task_key: Injestion_bronze
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.bronze_silver_earthquake_etl.id}
+            full_refresh: true
+        - task_key: earthquake_dashboard
+          depends_on:
+            - task_key: bronze_silver_clean_earthquake_data
+          dashboard_task:
+            subscription: {}
+            warehouse_id: 1f14f88dc65f32dd
+            dashboard_id: ${resources.dashboards.earthquake_monitor.id}
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
