@@ -1,7 +1,7 @@
 resources:
   jobs:
     project1_earthquake_end_end:
-      name: project1_earthquake_end_end
+      name: project1_earthquake_end_end #project_name
       tasks:
         - task_key: Injestion_bronze
           notebook_task:
