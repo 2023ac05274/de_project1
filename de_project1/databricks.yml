@@ -35,9 +35,9 @@ targets:
     workspace:
       host: https://dbc-184b80b1-8348.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/adarshss120@gmail.com to make sure we only have a single copy.
-      root_path: /Workspace/Users/adarshss120@gmail.com/.bundle/${bundle.name}/${bundle.target}
+      root_path: /Workspace/de_project1
     variables:
-      catalog: project1_dev
+      catalog: project1_prod
       schema: prod
       warehouse_id: 1f14f88dc65f32dd
     permissions:
