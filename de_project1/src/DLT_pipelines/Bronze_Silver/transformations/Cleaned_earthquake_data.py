@@ -4,7 +4,7 @@ from pyspark.sql.types import *
 import dlt
 # catalog_name=spark.conf.get('catalog_name')
 catalog_name = "project1_dev"  # Replace with your actual catalog name
-volume_path = f"/Volumes/{catalog_name}/project1_bronze/earthquake_data"
+volume_path = f"/Volumes/{catalog_name}/bronze/earthquake_data"
 primary_key = "id"
 properties_schema = StructType(
     [

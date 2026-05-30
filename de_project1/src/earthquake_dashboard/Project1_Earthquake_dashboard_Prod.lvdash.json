@@ -4,7 +4,7 @@
       "name": "67dd412d",
       "displayName": "Earthquake_dashboard",
       "queryLines": [
-        "Select * from project1_silver.earthquake_data_final"
+        "Select * from silver.earthquake_data_final"
       ],
       "catalog": "project1_dev",
       "schema": "default"
@@ -26,7 +26,7 @@
         "    WHEN mag > 10 THEN 'Meteoric'\r\n",
         "    ELSE 'Unknown'\r\n",
         "    END as magnitude_bucket\r\n",
-        "    from project1_silver.earthquake_data_final) \r\n",
+        "    from silver.earthquake_data_final) \r\n",
         " GROUP BY magnitude_bucket\r\n",
         " ORDER BY total_magnitude_count DESC"
       ],
@@ -51,7 +51,7 @@
         "    LONGITUDE,\r\n",
         "    PLACE,\r\n",
         "    LATITUDE\r\n",
-        " FROM project1_silver.earthquake_data_final\r\n",
+        " FROM silver.earthquake_data_final\r\n",
         ")\r\n",
         "GROUP BY COUNTRY"
       ],

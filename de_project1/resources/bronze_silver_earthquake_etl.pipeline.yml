@@ -9,7 +9,7 @@ resources:
       libraries:
         - glob:
             include: ../src/DLT_pipelines/Bronze_Silver/transformations/**
-      schema: project1_silver
+      schema: silver
       continuous: false
       development: false
       photon: true
